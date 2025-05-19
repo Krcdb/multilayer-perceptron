@@ -1,0 +1,8 @@
+.venv
+venv
+
+__pycache__
+
+describe.txt
+resources/thetas.txt
+resources/house.csv
