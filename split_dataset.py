@@ -4,7 +4,6 @@ import sys
 
 from utils import load_csv_df
 
-
 class SplitDataset:
   def __init__(self, input, train_output, test_output):
     self.df = load_csv_df(input)
@@ -12,13 +11,16 @@ class SplitDataset:
     self.test_output = test_output
   
   def split(self):
-    split_index = int(len(self.df) * 0.8)
     
     self.df = self.df.dropna()
     
+    header = ["n", "type"] + [f"feature {i + 1}" for i in range(30)]
+    self.df.columns = header
+    
+    split_index = int(len(self.df) * 0.8)
     df1 = self.df.iloc[:split_index]
     df2 = self.df.iloc[split_index:]
-    
+
     df1.to_csv(self.train_output, index=False)
     df2.to_csv(self.test_output, index=False)
     
