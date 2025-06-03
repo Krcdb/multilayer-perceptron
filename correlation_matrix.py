@@ -11,6 +11,7 @@ class CorrelationMatrix:
     self.df = load_csv_df(input)
 
   def plot(self):
+    #self.df = self.df.drop(columns=["feature 1", "feature 3", "feature 4", "feature 7", "feature 13", "feature 21", "feature 23", "feature 28"])
     num_df = self.df.select_dtypes(include='number')
 
     corr = num_df.corr(method='pearson')
