@@ -4,4 +4,4 @@ venv
 __pycache__
 
 describe.txt
-resources/trained_model.npz
+resources/trained_model*
