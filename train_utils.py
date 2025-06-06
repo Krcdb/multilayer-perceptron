@@ -72,3 +72,7 @@ def update_param(param, gradients, C, learning_rate):
   for c in range(1, C):
     param["W" + str(c)] = param["W" + str(c)] - learning_rate * gradients["dW" + str(c)]
     param["b" + str(c)] = param["b" + str(c)] - learning_rate * gradients["db" + str(c)]
+
+def softmax(z):
+  exp_z = np.exp(z - np.max(z, axis=0, keepdims=True))
+  return exp_z / np.sum(exp_z, axis=0, keepdims=True)
